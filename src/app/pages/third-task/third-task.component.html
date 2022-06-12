@@ -1,0 +1,15 @@
+<div class="first-view">
+    <mat-card class="view-card">
+        <mat-card-title>Zadanie 3</mat-card-title>
+        <mat-card-content>
+            <mat-form-field class="view-form-field" appearance="fill">
+                <mat-label>Dowolny łańcuch znaków</mat-label>
+                <input matInput type="text" [formControl]="someText" id="someText">
+                <mat-error *ngIf="someText.hasError('invalidBrackets')">
+                  źle
+                </mat-error>
+              </mat-form-field>
+        </mat-card-content>
+    </mat-card>
+</div>
+

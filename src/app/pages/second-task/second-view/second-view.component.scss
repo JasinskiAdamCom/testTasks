@@ -1,0 +1,19 @@
+.first-view {
+    display: flex;
+    justify-content: center;
+    
+
+    .view-card{
+        margin: 30px;
+        padding: 30px;
+       
+        .view-form-field{
+            min-width: 30vw
+        }
+
+        .view-card-content{
+            display: grid
+        }
+    }
+}
+

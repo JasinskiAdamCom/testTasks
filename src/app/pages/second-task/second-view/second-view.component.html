@@ -1,0 +1,25 @@
+<div class="first-view">
+    <mat-card class="view-card" [formGroup]="formGroup">
+        <mat-card-title>Zadanie 2.2</mat-card-title>
+        <mat-card-content formArrayName="inputs" class="view-card-content">
+            <mat-form-field *ngFor="let item of inputs.controls, let i=index" class="view-form-field" appearance="fill">
+                <mat-label>Dowolna liczba</mat-label>
+                <input matInput type="number" [formControlName]="i" id="inputs-{{i}}" required>
+                <mat-error *ngIf="inputs.controls[i].hasError('required')">
+                  Liczba jest <strong>wymagna</strong>
+                </mat-error>
+              </mat-form-field>
+        </mat-card-content>
+        <mat-card-actions align="end">
+          <button (click)="onSubmit()" mat-button>Zatwierdź</button>
+        </mat-card-actions>
+    </mat-card>
+</div>
+
+<ng-template #alert>
+    <h1 mat-dialog-title>Suma wartości</h1>
+    <div mat-dialog-content>Wynik to: {{sum}}</div>
+    <div mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close>Zamknij</button>
+    </div>
+</ng-template>

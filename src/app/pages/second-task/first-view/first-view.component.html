@@ -1,0 +1,25 @@
+<div class="first-view">
+    <mat-card class="view-card">
+        <mat-card-title>Zadanie 2.1</mat-card-title>
+        <mat-card-content>
+            <mat-form-field class="view-form-field" appearance="fill">
+                <mat-label>Liczba wejść</mat-label>
+                <input matInput type="number" [formControl]="numberOfInputs" id="numberOfInputs" required>
+                <mat-hint>Liczba całkowita z przedziału 1 – 10</mat-hint>
+                <mat-error *ngIf="(numberOfInputs.hasError('min') || numberOfInputs.hasError('max')) && !numberOfInputs.hasError('required')">
+                  Wymagana liczba całkowita z przedziału <strong>1 – 10</strong>
+                </mat-error>
+                <mat-error *ngIf="numberOfInputs.hasError('pattern') && !(numberOfInputs.hasError('min') || numberOfInputs.hasError('max')) && !numberOfInputs.hasError('required')">
+                    Wymagana liczba <strong>całkowita</strong> z przedziału 1 – 10
+                  </mat-error>
+                <mat-error *ngIf="numberOfInputs.hasError('required')">
+                  Liczba jest <strong>wymagna</strong>
+                </mat-error>
+              </mat-form-field>
+        </mat-card-content>
+        <mat-card-actions align ="end">
+          <button [disabled]="!numberOfInputs.valid" [routerLink]="[numberOfInputs.value]" mat-button>Potwierdź</button>
+        </mat-card-actions>
+    </mat-card>
+</div>
+
